@@ -1,62 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Faisal | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Faisal Khan | AI & MLOps</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="grid-bg"></div>
 
-  <header>
-    <h1>Faisal</h1>
-    <p>Data Science & AI Engineer</p>
-  </header>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">MFK<span>.AI</span></div>
+            <div class="nav-links">
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="mailto:m62@buffalo.edu">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      I am a data science student with strong interest in machine learning,
-      deep learning, and AI systems. I enjoy building real-world projects
-      and experimenting with modern ML tools.
-    </p>
-  </section>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="tag-line">M.S. Artificial Intelligence @ University at Buffalo</div>
+            <h1>Mohammed Faisal Khan</h1>
+            <p class="bio">Specializing in end-to-end ML systems, MLOps, and predictive modeling.</p>
+            <div class="social-links">
+                <a href="https://github.com/faisalkhan4k" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://devpost.com" target="_blank">Devpost</a>
+            </div>
+        </div>
+    </header>
 
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Python, SQL</li>
-      <li>Machine Learning, Deep Learning</li>
-      <li>PyTorch, TensorFlow</li>
-      <li>Streamlit, Flask</li>
-      <li>Git, GitHub, Docker</li>
-    </ul>
-  </section>
+    <section id="skills" class="container">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Languages & Core</h3>
+                <p>Python (Numpy, Pandas, Dask), SQL, Flask, Streamlit</p>
+            </div>
+            <div class="skill-category">
+                <h3>Machine Learning</h3>
+                <p>Hugging Face, TensorFlow, Scikit-learn, XGBoost, LightGBM</p>
+            </div>
+            <div class="skill-category">
+                <h3>MLOps & Infrastructure</h3>
+                <p>DVC, MLflow, AWS, Docker, Kubernetes, Jenkins, Prometheus</p>
+            </div>
+        </div>
+    </section>
 
-  <section class="projects">
-    <h2>Projects</h2>
+    <section id="projects" class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="project-list">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>NYC Taxi Demand Prediction</h3>
+                    <span class="date">Aug 2025 - Present</span>
+                </div>
+                <p>End-to-end regression system using Dask for out-of-core processing. Optimized with Optuna and deployed via containerized Streamlit on AWS.</p>
+                <div class="tags"><span>MLOps</span><span>Time Series</span><span>DVC</span><span>MLflow</span></div>
+            </div>
 
-    <div class="project">
-      <h3>Uber Demand Prediction</h3>
-      <p>Time-series demand forecasting using ML models.</p>
-      <a href="https://github.com/yourusername/uber-demand-prediction">GitHub</a>
-    </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>YouTube Sentiment & AI Recommender</h3>
+                    <span class="date">Jan 2025 - May 2025</span>
+                </div>
+                <p>Real-time sentiment engine with LightGBM and Chrome Extension scraping. Integrated DeepSeek R1 for context-aware product alternatives.</p>
+                <div class="tags"><span>NLP</span><span>DeepSeek R1</span><span>Chrome API</span></div>
+            </div>
+        </div>
+    </section>
 
-    <div class="project">
-      <h3>Movie Recommender System</h3>
-      <p>Content-based recommendation using TMDB dataset.</p>
-      <a href="https://github.com/yourusername/movie-recommender">GitHub</a>
-    </div>
+    <footer>
+        <p>Mohammed Faisal Khan | m62@buffalo.edu | 716-464-8111</p>
+    </footer>
 
-  </section>
-
-  <footer>
-    <p>
-      📧 Email: your@email.com |
-      🔗 <a href="https://github.com/faisalkhan4k">GitHub</a> |
-      🔗 <a href="https://www.linkedin.com/in/mohammed-faisal-khan-a80734267/">LinkedIn</a>
-    </p>
-  </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
