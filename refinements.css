@@ -1,0 +1,21 @@
+/* Clean hero after removing the decorative voice runtime panel. */
+.hero{grid-template-columns:1fr;min-height:650px;padding-top:110px;padding-bottom:120px}
+.hero-copy{max-width:990px}
+.hero-lede{max-width:760px}
+
+/* Twelve-field résumé skill constellation. */
+.skill-node{width:132px;height:132px}
+.node-voice{left:43%;top:0}
+.node-agents{right:18%;top:8%}
+.node-rl{right:3%;top:27%}
+.node-ml{right:3%;bottom:27%}
+.node-code{right:18%;bottom:8%}
+.node-backend{left:43%;bottom:0}
+.node-data{left:18%;bottom:8%}
+.node-db{left:3%;bottom:27%}
+.node-mlops{left:3%;top:27%}
+.node-cloud{left:18%;top:8%}
+.node-observe{left:27%;top:41%;width:118px;height:118px}
+.node-web{right:27%;top:41%;width:118px;height:118px}
+
+@media(max-width:850px){.hero{min-height:auto;padding-top:80px;padding-bottom:90px}}
