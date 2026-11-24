@@ -1,74 +1,37 @@
-const RICKROLL_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-
-let tiles = [
-  {
-    id: "realtime-voice-vm",
-    domain: "voice",
-    tag: "Voice AI VM",
-    title: "Realtime Voice Pipeline",
-    desc: "Streaming audio, WebSockets, interruption handling, and speech-to-speech vs. cascaded ASR -> LLM -> TTS.",
-    url: RICKROLL_URL
-  },
-  {
-    id: "receptionist-vm",
-    domain: "voice",
-    tag: "Voice AI VM",
-    title: "Voice AI Receptionist Agent",
-    desc: "LiveKit + Deepgram + FastAPI + Groq scheduling agent with keypad confirmation and Hybrid RAG.",
-    url: RICKROLL_URL
-  },
-  {
-    id: "sales-rl-vm",
-    domain: "rl",
-    tag: "Real-Time & RL VM",
-    title: "Sales RLAgent",
-    desc: "Voice-controlled sales workflow with LangGraph, hierarchical PPO policies, FastAPI, and PostgreSQL.",
-    url: RICKROLL_URL
-  },
-  {
-    id: "impostor-lab-vm",
-    domain: "rl",
-    tag: "Real-Time & RL VM",
-    title: "Impostor Lab Multi-Agent RL",
-    desc: "PyTorch PPO actor-critic self-play environment with OpenTelemetry and TensorBoard tracking.",
-    url: RICKROLL_URL
-  }
+const PLACEHOLDER_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+// Replace each url with its project's endpoint when it is ready.
+const tiles = [
+  { domain: "voice", tag: "Voice AI", title: "Realtime Voice Pipeline", desc: "Streaming audio, WebSockets, interruption handling, and speech-to-speech versus cascaded ASR → LLM → TTS.", url: PLACEHOLDER_URL },
+  { domain: "voice", tag: "Voice AI", title: "Voice AI Receptionist Agent", desc: "A live voice agent for scheduling, with keypad confirmation and hybrid RAG.", url: PLACEHOLDER_URL },
+  { domain: "rl", tag: "Real-time & RL", title: "Sales RLAgent", desc: "A voice-controlled sales workflow with agent orchestration and reinforcement learning.", url: PLACEHOLDER_URL },
+  { domain: "rl", tag: "Real-time & RL", title: "Impostor Lab Multi-Agent RL", desc: "A multi-agent reinforcement learning environment exploring self-play.", url: PLACEHOLDER_URL }
 ];
-
 const tileGrid = document.getElementById("tileGrid");
 const domainFilter = document.getElementById("domainFilter");
 const toggleDensity = document.getElementById("toggleDensity");
 const shuffleTiles = document.getElementById("shuffleTiles");
-
 function renderTiles() {
-  const filterVal = domainFilter.value;
-  const visible = filterVal === "all" ? tiles : tiles.filter((t) => t.domain === filterVal);
-
-  tileGrid.innerHTML = visible
-    .map(
-      (tile) => `
-      <a class="vm-tile" href="${tile.url}" target="_blank" rel="noopener noreferrer">
-        <div>
-          <div class="tile-badge">${tile.tag}</div>
-          <h3>${tile.title}</h3>
-        </div>
-        <p>${tile.desc}</p>
-        <span class="tile-cta">Launch Cloud VM &rarr;</span>
-      </a>
-    `
-    )
-    .join("");
+  const visible = tiles.filter(tile => domainFilter.value === "all" || tile.domain === domainFilter.value);
+  tileGrid.replaceChildren(...visible.map((tile) => {
+    const link = document.createElement("a");
+    link.className = "vm-tile";
+    link.href = tile.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    const badge = document.createElement("span"); badge.className = "tile-badge"; badge.textContent = tile.tag;
+    const title = document.createElement("h3"); title.textContent = tile.title;
+    const description = document.createElement("p"); description.textContent = tile.desc;
+    const cta = document.createElement("span"); cta.className = "tile-cta"; cta.textContent = "Open project · New tab";
+    link.append(badge, title, description, cta);
+    return link;
+  }));
 }
-
 domainFilter.addEventListener("change", renderTiles);
-
 toggleDensity.addEventListener("click", () => {
-  tileGrid.classList.toggle("compact");
-  toggleDensity.textContent = tileGrid.classList.contains("compact")
-    ? "Expanded View"
-    : "Compact View";
+  const compact = tileGrid.classList.toggle("compact");
+  toggleDensity.setAttribute("aria-pressed", String(compact));
+  toggleDensity.textContent = compact ? "Expanded view" : "Compact view";
 });
-
 shuffleTiles.addEventListener("click", () => {
   for (let i = tiles.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -76,5 +39,4 @@ shuffleTiles.addEventListener("click", () => {
   }
   renderTiles();
 });
-
 renderTiles();
